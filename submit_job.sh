@@ -2,7 +2,7 @@
 
 MODEL="llama-2-7b-chat"
 PY="generate_fine_tuning_dataset.py"
-OUTDIR="$LUSTRE/finetuning"
+OUTDIR="$LUSTRE/course-dataset"
 ID=$RANDOM
 
 mkdir -p $OUTDIR
@@ -10,8 +10,8 @@ mkdir -p $OUTDIR
 tmpfile=$(mktemp)
 sbatch 1> $tmpfile <<EOF
 #!/bin/bash
-#SBATCH --job-name=finetuning
-#SBATCH --time=10
+#SBATCH --job-name=generate
+#SBATCH --time=30
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=32
 #SBATCH --mem=64GB
